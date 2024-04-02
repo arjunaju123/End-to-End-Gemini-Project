@@ -34,7 +34,7 @@ st.set_page_config(page_title="Gemini Image Demo")
 
 st.header("Gemini Application")
 input=st.text_input("Input Prompt: ",key="input")
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","jfif"])
 image=""   
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
