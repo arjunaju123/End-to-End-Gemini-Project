@@ -1,15 +1,15 @@
 import streamlit as st
-from PyPDF2 import PdfReader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from pypdf import PdfReader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 import os
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 #from langchain.vectorstores import FAISS
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains.question_answering import load_qa_chain
+from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
+from langchain_community.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
-from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores.faiss import FAISS
 
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
@@ -57,7 +57,7 @@ def get_conversational_chain():
 def user_input(user_question):
     embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     
-    new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
+    new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
 
     chain = get_conversational_chain()
