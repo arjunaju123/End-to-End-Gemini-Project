@@ -1,4 +1,4 @@
-streamlit==1.29.0
+streamlit==1.48.1
 google-generativeai
 python-dotenv
 langchain
@@ -6,3 +6,11 @@ PyPDF2
 chromadb
 faiss-cpu
 langchain_google_genai
+IPython==9.4.0
+PIL==1.1.6
+PyPDF2==3.0.1
+dotenv==0.9.9
+google==3.0.0
+langchain==0.3.27
+langchain_community==0.3.27
+langchain_google_genai==2.1.9
